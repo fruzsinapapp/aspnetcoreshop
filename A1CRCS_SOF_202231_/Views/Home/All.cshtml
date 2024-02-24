@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Összes hirdetés";
+}
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Item>
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
+
+<ul>
+    @foreach (var item in Model.GroupBy(t => t.Uid))
+    {
+        <ul>
+            @foreach (var i in item)
+            {
+                <div class="card" style="@(i.Reserved ? "background-color: lightgray;" : "background-color: white;")">
+
+                    <div class="card-body">
+
+                        <h5 class="card-subtitle mb-2 text-muted">@i.Title</h5>
+                        <h5 class="card-subtitle mb-2 text-muted">@i.Price <label>Ft</label></h5>
+                        <div style="width: 18remx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@i.Description</div>
+
+                        <a href="/Home/ItemView?uid=@i.Uid" class="btn btn-outline-primary">Details</a>
+
+                        @if (i.Comments.Count > 0)
+                        {
+                            <label>Comments: (</label>
+                            @i.Comments.Count
+                            <label>)</label>
+                        }
+                    </div>
+                </div>
+                <br />
+            }
+        </ul>
+
+    }
+</ul>

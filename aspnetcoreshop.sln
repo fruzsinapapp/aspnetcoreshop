@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aspnetcoreshop", "A1CRCS_SOF_202231_\aspnetcoreshop.csproj", "{CDDCF056-E93D-4549-9F71-A31E5166AFE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChangeFirstItem", "ChangeFirstItem\ChangeFirstItem.csproj", "{FC427D7C-63F7-402F-B651-6F860F45C762}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDDCF056-E93D-4549-9F71-A31E5166AFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDDCF056-E93D-4549-9F71-A31E5166AFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDDCF056-E93D-4549-9F71-A31E5166AFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDDCF056-E93D-4549-9F71-A31E5166AFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC427D7C-63F7-402F-B651-6F860F45C762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC427D7C-63F7-402F-B651-6F860F45C762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC427D7C-63F7-402F-B651-6F860F45C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC427D7C-63F7-402F-B651-6F860F45C762}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A689FA7B-E3CD-42D2-A90B-CF363C774C46}
+	EndGlobalSection
+EndGlobal

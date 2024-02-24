@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Saját hirdetések";
+}
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Comment>
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="title">
+            @item.Content
+            <br />
+        </li>
+    }
+</ul>
+

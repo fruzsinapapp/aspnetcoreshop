@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@{
+    ViewData["Title"] = "New item";
+}
+@model A1CRCS_SOF_202231_.Models.Item
+@inject UserManager<SiteUser> UserManager
+
+<h4>New item</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Uid" class="form-control" name="Uid" hidden />
+                <span asp-validation-for="Uid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input asp-for="Title"  class="form-control" required/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" min="200" required/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Description</label>
+                <textarea asp-for="Description"  rows="5" class="form-control" required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select name="category-select" id="category-select" class="form-control" required>
+                    <option value="">Choose a category</option>
+                    <option value="0">electronics</option>
+                    <option value="1">clothes</option>
+                    <option value="2">housing</option>
+                    <option value="3">sport</option>
+                    <option value="4">book</option>
+                    <option value="5">game</option>
+                </select>
+            </div>
+            <br />
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload a profile picture</label>
+                <input name="UploadedFile" class="form-control" type="file" asp-for="UploadedFile">
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

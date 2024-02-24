@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Saját hirdetések";
+}
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Item>
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
+
+<ul>
+    @foreach (var item in Model.GroupBy(t => t.Uid))
+    {
+
+        <ul>
+            @foreach (var i in item)
+            {
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-subtitle mb-2 text-muted">@i.Title</h5>
+                        <h5 class="card-subtitle mb-2 text-muted">@i.Price <label>Ft</label></h5>
+                        <div style="width: 18remx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@i.Description</div>
+
+                        <a href="/Home/ItemView?uid=@i.Uid" class="btn btn-outline-primary">Details</a>
+                        <a href="/Own/Delete?uid=@i.Uid" class="btn btn-outline-danger">Delete</a>
+                        <a href="/Own/Update?uid=@i.Uid" class="btn btn-outline-primary">Edit</a>
+
+                        @if (i.Comments.Count > 0)
+                        {
+                            <label>Comments: (</label>
+                            @i.Comments.Count
+                            <label>)</label>
+                        }
+                    </div>
+                </div>
+                <br />
+            }
+        </ul>
+
+    }
+</ul>

@@ -1,0 +1,68 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+.item-img {
+    width: 500px;
+    height: 500px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.title {
+    font-size: 1.3em;
+    margin: 20px;
+    border-bottom: 1px solid black;
+}
+
+.user {
+    font-size: 1.3em;
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.short-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    max-height: 40px;
+}
+
+
+.card {
+    width:auto
+}
+
+.toright{
+    float: right;
+}
+
+@media screen and (max-width: 500px){
+    .card{
+        width: 100vw;
+    }
+}

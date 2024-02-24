@@ -1,0 +1,94 @@
+﻿@model Item
+@{
+    ViewData["Title"] = "Hirdetés";
+}
+
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<SiteUser> UserManager
+    <h3>@Model.Title</h3>
+    <br />
+    <h5> @Model.Description</h5>
+    <br />
+    <h5> Owner:</h5>
+    <img src="@Url.Action("GetImage", "Home", new {userid = @Model.OwnerId})" />
+    <label> @Model.Owner.LastName <label> </label>@Model.Owner.FirstName</label>
+    <br />
+    <br />
+@if (Model.PictureData != null)
+{
+        <img class ="item-img" src="@Url.Action("GetItemImage", "Home", new {itemId = @Model.Uid})" />
+}
+@if (Model.OwnerId == UserManager.GetUserId(User))
+{
+    @if (Model.Reserved)
+    {
+                <a href="#" class="btn btn-secondary" data-toggle="popover" title="Own item, there is already a reservation">Reserve</a>
+    }
+    else
+    {
+        <a href="#" class="btn btn-secondary" data-toggle="popover" title="Own item, there is no reservation yet">Reserve</a>
+    }
+}
+else
+{
+    @if (Model.Reserved)
+    {
+        @if (Model.ReservedBy == UserManager.GetUserId(User))
+        {
+                        <a href="/Home/UnReserve?uid=@Model.Uid" class="btn btn-outline-danger">Cancel reservation</a>
+        }
+    }
+    else
+    {
+                <a href="/Home/Reserve?uid=@Model.Uid" class="btn btn-outline-primary">Reserve</a>
+    }
+
+}
+
+
+    <br />
+    <br />
+    <h5>Comments:</h5>
+
+@if (Model.Comments.Count < 1)
+{
+        <label>There isn't any comments yet</label>
+}
+else
+{
+     <ul>
+        @foreach (var message in Model.Comments)
+        {
+
+                    <li>               
+                        <img src="@Url.Action("GetImage", "Home", new {userid = message.OwnerId})" />
+                @message.Owner.FirstName @message.Owner.LastName <label>:</label>
+                        <br />
+                @message.Content
+                        <br/>
+                @Model.Date.ToShortDateString()
+                    </li>
+                    <br />
+        }
+
+        </ul>   
+}
+<br />
+
+
+<form method="post" action="/Home/SaveComment?uid=@Model.Uid">
+
+    <div class="form-group">
+        <label class="control-label">Add comment</label>
+        <textarea name="commentString" rows="4" cols="80" class="form-control" id="commentString"></textarea>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-primary" />
+    </div>
+
+</form>
+
+

@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Szerkesztés";
+}
+@model Item
+<h4>Hirdetés szerkesztése</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Uid" class="form-control" value="@Model.Uid" name="Uid" hidden />
+                <span asp-validation-for="Uid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input asp-for="Title" class="form-control" value="@Model.Title" required/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" value="@Model.Price" required min="200"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Description</label>
+                <textarea asp-for="Description" rows="5" class="form-control" required>@Model.Description</textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Válassz kategóriát!</label>
+                <select name="category-select" id="category-select" class="form-control" required>
+                    <option asp-for="@Model.Category" value="0">electronics</option>
+                    <option asp-for="@Model.Category" value="1">clothes</option>
+                    <option asp-for="@Model.Category" value="2">housing</option>
+                    <option asp-for="@Model.Category" value="3">sport</option>
+                    <option asp-for="@Model.Category" value="4">book</option>
+                    <option asp-for="@Model.Category" value="5">game</option>
+                </select>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

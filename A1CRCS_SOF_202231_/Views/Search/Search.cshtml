@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+<h4>Search items</h4>
+<div class="col-md-4">
+ <form asp-action="Search">
+    <label class="control-label">Price</label>
+    <input type="number" name="price-input" class="form-control">
+    <br />
+    <label class="control-label">Categories</label>
+    <select name="category-select" class="form-control">
+        <option value="">Choose a category</option>
+        <option value="0">electronics</option>
+        <option value="1">clothes</option>
+        <option value="2">housing</option>
+        <option value="3">sport</option>
+        <option value="4">book</option>
+        <option value="5">game</option>
+    </select>
+    <br />
+    <label class="control-label">Reserved items</label>
+    <input class="form-check-input mt-0" type="checkbox" name="is-reserved">
+    <br />
+    <br />
+    <input type="submit" value="Search" class="btn btn-primary" />
+</form>
+</div>
